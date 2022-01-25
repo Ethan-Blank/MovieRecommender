@@ -22,6 +22,9 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+ >   * Project provides an opportunity to learn a GUI framework
+ >   * Project provides a utility that all group members find useful 
+ >   * Project provides an opportunity for creativity
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
  >   * C++ 
@@ -29,7 +32,7 @@
  >   * Qt (https://www.qt.io/) - A C++ GUI framework
  > * What will be the input/output of your project? What are the features that the project provides?
  >   * Input: IMDb Datasets, User Input, User Application History, Item Popularity
- >   * Output: A custom selection of movies and details for those movies
+ >   * Output: A custom selection of movies and details for those movies (most notably, what platforms movies are available one)
  >   * Features: Manipulation of search criteria, tracking of user-history (intra-application), a GUI
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
