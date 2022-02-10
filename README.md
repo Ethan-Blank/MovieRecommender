@@ -54,7 +54,7 @@
  > **Class diagram** 
  >  ![image](https://user-images.githubusercontent.com/97242860/153319495-6bde1367-2f5e-41eb-8b7a-abebcb697f1c.png)
    **Description**
-   The GUI is a class with an int height, int width, and string color. The library would have an instance of it in our UML but we not totally sure if it will in main or in the library class.
+   The Library class is aggregated out of Movies and composed out of a GUI, and it will depend on SearchCriteria as a parameter for methods. The GUI is a class with an int height, int width, and string color. The GUI class also aggregates out User class, via the recentlyWatched member. The Reccomender class will depend on the User's recentlyWatched member as a parameter for methods.  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with a reader (using Calendly). Your entire team must be present. This meeting will occur on week 8 but NOT during lab time.
  > * Before the meeting you should perform a sprint plan like you did in Phase II.
