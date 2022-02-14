@@ -1,0 +1,6 @@
+[submodule "final-project-npill005-eblan012-oribe001-mderi004"]
+	path = final-project-npill005-eblan012-oribe001-mderi004
+	url = https://github.com/cs100/final-project-npill005-eblan012-oribe001-mderi004.git
+[submodule "wxWidgets"]
+	path = wxWidgets
+	url = https://github.com/wxWidgets/wxWidgets.git
