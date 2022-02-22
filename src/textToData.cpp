@@ -12,14 +12,16 @@ vector<dbElement> textToData(string filename) {
 	vector<dbElement> retval;
 	stringstream ss;
 	string temp;
-	getline(myfile, temp); 
 	
+	// As soon as getters are done, all of this can be contained
+	// within *ONE* dbElement variable
 	string title;
 	vector<string> genres;
 	string dir;
 	int year;
 	float score;
 
+	getline(myfile, temp); 
 	while(!myfile.eof()) {
 		ss = stringstream(temp);
 
@@ -27,10 +29,8 @@ vector<dbElement> textToData(string filename) {
 		getline(ss, title, ',');
 		// 2. Genre(s)
 		getline(ss, temp, "\"");	// Gets rid of initial "
-		getline(ss, temp, "\"");	// Grabs rest of genres, including last "
-		for (size_t i = 0; i < temp.size(); i++) {
-					
-		}
+		getline(ss, temp, "\"");	// Grabs rest of genres, up until last "
+
 		// 3. Director
 		// 4. Year
 		// 5. Rating
