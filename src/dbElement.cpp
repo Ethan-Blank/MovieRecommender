@@ -15,3 +15,34 @@ dbElement::dbElement(string title, string dir, int year, float rating) {
 	this->year = year;
 	this->rating = rating;
 }
+
+void dbElement::setTitle(string title) {
+	this->title = title;
+}
+
+void dbElement::setDirector(string dir) {
+	this->director = dir;
+}
+
+void dbElement::setYear(int year) {
+	this->year = year;
+}
+
+void dbElement::setRating(float rating) {
+	this->rating = rating;
+
+string dbElement::getTitle(){
+	return this->title;
+}
+
+string dbElement::getDirector(){
+	return this->dir;
+}
+
+int dbElement::getYear(){
+	return this->year;
+}
+
+float dbElement::getRating(){
+	return::this->rating;
+}
