@@ -30,4 +30,19 @@ void dbElement::setYear(int year) {
 
 void dbElement::setRating(float rating) {
 	this->rating = rating;
+
+string dbElement::getTitle(){
+	return this->title;
+}
+
+string dbElement::getDirector(){
+	return this->dir;
+}
+
+int dbElement::getYear(){
+	return this->year;
+}
+
+float dbElement::getRating(){
+	return::this->rating;
 }
