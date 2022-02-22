@@ -12,34 +12,73 @@ vector<dbElement> textToData(string filename) {
 	vector<dbElement> retval;
 	stringstream ss;
 	string temp;
-	
-	// As soon as getters are done, all of this can be contained
-	// within *ONE* dbElement variable
-	string title;
 	vector<string> genres;
-	string dir;
-	int year;
-	float score;
+	dbElement newEntry;
+	bool onLastItem = false;	// This is a surprise tool that will help us later
 
 	getline(myfile, temp); 
-	while(!myfile.eof()) {
+	//while(!myfile.eof()) {
+	while(true) {
 		ss = stringstream(temp);
 
 		// 1. Title
-		getline(ss, title, ',');
+		if (ss.peek() == '"') {	// Title contains at least one ','
+			getline(ss, temp, '"');
+			getline(ss, temp, '"');
+		}
+		else
+			getline(ss, temp, ',');
+		newEntry.setTitle(temp);
+		if (ss.peek() == ',') getline(ss, temp, ','); // In case of case 1
+
 		// 2. Genre(s)
-		getline(ss, temp, "\"");	// Gets rid of initial "
-		getline(ss, temp, "\"");	// Grabs rest of genres, up until last "
+		if (ss.peek() == '"') {	// Multiple genres
+			getline(ss, temp, '\"');	// Gets rid of initial "
+			getline(ss, temp, ',');		// Gets first genre
+			while (temp.at(temp.size()-1) != '\"') {	// Gets the rest of the genres
+				genres.push_back(temp);
+				getline(ss, temp, ',');
+			}
+			temp = temp.substr(0, temp.size()-1);
+			genres.push_back(temp);
+			getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
+		}
+		else {	// Singular genre
+			getline(ss, temp, ',');
+			genres.push_back(temp);
+		}
+		newEntry.setGenres(genres);
 
 		// 3. Director
+		getline(ss, temp, ',');	
+		newEntry.setDirector(temp);
+
 		// 4. Year
+		getline(ss, temp, ',');	
+		newEntry.setYear(stoi(temp));
+
 		// 5. Rating
+		getline(ss, temp, ',');	
+		newEntry.setRating(stof(temp));
+
+		// Add newEntry to database
+		retval.push_back(newEntry);
+
+		
 		getline(myfile, temp);
+		//cerr << newEntry.getTitle() << ", " << newEntry.getDirector() << ", " << newEntry.getYear()  << ", " << newEntry.getRating() << endl;
+		if (onLastItem) break;
+		if (myfile.eof()) onLastItem = true;
 	}
+
+	return retval;
 }
 
-int main() {
+/*int main() {
 	string filename = "imdb.movie.database.txt";	
-	textToData(filename);
+	auto v = textToData(filename);
+	for (auto i : v) {
+		cout << i.getTitle() << endl;
+	}
 	return 0;
-}
+}*/
