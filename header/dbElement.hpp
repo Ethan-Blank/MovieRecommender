@@ -16,6 +16,10 @@ class dbElement {
 	std::string getDirector();
 	int getYear();
 	float getRating();
+	std::void setTitle(std::string);
+	std::void setDirector(std::string);
+	void setYear(int);
+	void setRating(float);
 };
 
 #endif  
