@@ -1,11 +1,18 @@
+#include "../header/library.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include<vector>
-#include "../header/dbElement.hpp"
 using namespace std;
 
-vector<dbElement> textToData(string filename) {
+Library::Library(string filename) {
+	this->movies = fileToData(filename); 
+
+	for (auto i: this->movies)
+		cout << i.getTitle() << endl;
+}
+
+vector<dbElement> Library::fileToData(string filename) {
 	ifstream myfile;
 	myfile.open(filename);
 
@@ -74,11 +81,8 @@ vector<dbElement> textToData(string filename) {
 	return retval;
 }
 
-/*int main() {
+int main() {
 	string filename = "imdb.movie.database.txt";	
-	auto v = textToData(filename);
-	for (auto i : v) {
-		cout << i.getTitle() << endl;
-	}
+	Library lib(filename);
 	return 0;
-}*/
+}
