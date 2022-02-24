@@ -23,6 +23,7 @@ class dbElement {
 	void setGenres(std::vector<std::string>);
 	void setYear(int);
 	void setRating(float);
+	void print();
 };
 
 #endif  

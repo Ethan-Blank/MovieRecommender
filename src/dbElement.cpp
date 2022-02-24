@@ -51,3 +51,17 @@ int dbElement::getYear(){
 float dbElement::getRating(){
 	return this->rating;
 }
+
+void dbElement::print() {
+	cout << title << ", ";
+
+	cout << '"';
+	for (size_t i = 0; i < genres.size(); i++) {
+		cout << genres.at(i);
+		if (i != genres.size()-1) 
+			cout << ", ";
+	}
+	cout << "\", ";
+
+	cout << director << ", " << year << rating << endl;
+}

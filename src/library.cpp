@@ -8,8 +8,10 @@ using namespace std;
 Library::Library(string filename) {
 	this->movies = fileToData(filename); 
 
-	for (auto i: this->movies)
-		cout << i.getTitle() << endl;
+	//movies.at(0).print();
+	for (size_t i = 0; i < movies.size(); i++) {
+		movies.at(i).print();
+	}
 }
 
 vector<dbElement> Library::fileToData(string filename) {
@@ -46,7 +48,7 @@ vector<dbElement> Library::fileToData(string filename) {
 				genres.push_back(temp);
 				getline(ss, temp, ',');
 			}
-			temp = temp.substr(0, temp.size()-1);
+			temp = temp.substr(0, temp.size()-1); // Get rid of ',' at the end
 			genres.push_back(temp);
 			getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
 		}
@@ -55,6 +57,7 @@ vector<dbElement> Library::fileToData(string filename) {
 			genres.push_back(temp);
 		}
 		newEntry.setGenres(genres);
+		genres.clear();
 
 		// 3. Director
 		getline(ss, temp, ',');	
