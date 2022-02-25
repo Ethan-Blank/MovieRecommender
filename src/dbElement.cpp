@@ -24,19 +24,24 @@ void dbElement::setDirector(string dir) {
 	this->director = dir;
 }
 
+void dbElement::setGenres(vector<string> v) {
+	this->genres = v;
+}
+
 void dbElement::setYear(int year) {
 	this->year = year;
 }
 
 void dbElement::setRating(float rating) {
 	this->rating = rating;
+}
 
 string dbElement::getTitle(){
 	return this->title;
 }
 
 string dbElement::getDirector(){
-	return this->dir;
+	return this->director;
 }
 
 int dbElement::getYear(){
@@ -44,5 +49,5 @@ int dbElement::getYear(){
 }
 
 float dbElement::getRating(){
-	return::this->rating;
+	return this->rating;
 }
