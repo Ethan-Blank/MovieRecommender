@@ -5,14 +5,7 @@
 #include<vector>
 using namespace std;
 
-Library::Library(string filename) {
-	this->movies = fileToData(filename); 
-
-	//movies.at(0).print();
-	for (size_t i = 0; i < movies.size(); i++) {
-		movies.at(i).print();
-	}
-}
+Library::Library(string filename) { this->movies = fileToData(filename); }
 
 vector<dbElement> Library::fileToData(string filename) {
 	ifstream myfile;
@@ -84,8 +77,9 @@ vector<dbElement> Library::fileToData(string filename) {
 	return retval;
 }
 
-int main() {
-	string filename = "imdb.movie.database.txt";	
-	Library lib(filename);
-	return 0;
+int Library::searchByTitle(string title) {
+	for (size_t i = 0; i < movies.size(); i++) 
+		if (movies.at(i).getTitle() == title)
+			return i;
+	return -1;
 }
