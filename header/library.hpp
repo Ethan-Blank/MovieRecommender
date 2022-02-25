@@ -11,6 +11,7 @@ class Library {
 	public:
 		Library(std::string);
 		std::vector<dbElement> fileToData(std::string);	
+		int searchByTitle(std::string);
 };
 
 #endif
