@@ -8,6 +8,7 @@ ADD_EXECUTABLE(test
 	tests/test.cpp
 	src/dbElement.cpp
 	src/library.cpp
+	src/searchCriteria.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
