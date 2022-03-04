@@ -9,3 +9,16 @@ ADD_EXECUTABLE(MovieRec
 )
 
 target_link_libraries(MovieRec wx::net wx::core wx::base)
+
+ADD_SUBDIRECTORY(googletest)
+
+ADD_EXECUTABLE(test
+	tests/test.cpp
+	src/dbElement.cpp
+	src/library.cpp
+	src/searchCriteria.cpp
+)
+
+TARGET_LINK_LIBRARIES(test gtest)
+TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
+
