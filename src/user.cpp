@@ -1,5 +1,6 @@
 #include "../header/user.hpp"
 #include <iostream>
+#include <ostream>
 
 using namespace std;
 
@@ -57,4 +58,11 @@ void user::setUsername(string un) {
 
 void user::setPassword(string pw) {
 	this->password = pw;
+}
+
+void user::saveData() {
+    ofstream userFile;
+    filename = this->username + " " + this->password + ".txt";
+    userFile.open(filename);
+    userFile.close();
 }

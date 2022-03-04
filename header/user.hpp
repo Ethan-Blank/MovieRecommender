@@ -14,6 +14,8 @@ class user {
 	string username;
 	string password;
     public:
+    user();
+    user(std::vector<std::string>, std::vector<std::string>, std::vector<std::string>, std::string, std::string);
 	std::vector<std::string> getFavDirectors();
 	std::vector<std::string> getFavGenres();
 	std::vector<std::string> getWatchHistory();
@@ -24,6 +26,7 @@ class user {
 	void addWatchedMovie(std::string);
 	void setUsername(std::string);
 	void setPassword(std::string);
+    void saveData();
 };
 
 #endif
