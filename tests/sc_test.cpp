@@ -20,8 +20,8 @@ TEST(searchCritera, invalidGetter) {
 	std::vector<std::string> genres = {"Action"};
 	SearchCriteria sc(title, director, genres);
 
-	EXPECT_EQ(sc.getTitle(), "life");
-	EXPECT_EQ(sc.getDirector(), "owen" );
+	EXPECT_NE(sc.getTitle(), "life");
+	EXPECT_NE(sc.getDirector(), "owen" );
 	EXPECT_EQ(sc.getGenres(), genres);
 }
 #endif
