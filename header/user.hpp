@@ -15,6 +15,7 @@ class user {
 	std::string password;
     public:
     user();
+    user(std::string);
     //user(std::string, std::string, std::vector<std::string>, std::vector<std::string>, std::vector<std::string>);
     user(std::string, std::string, std::vector<std::string> = {}, std::vector<std::string> = {}, std::vector<std::string> = {});
 	std::vector<std::string> getFavDirectors();
@@ -24,10 +25,12 @@ class user {
 	std::string getPassword();
 	void setFavDirectors(std::vector<std::string>);
 	void setFavGenres(std::vector<std::string>);
+	void setWatchHistory(std::vector<std::string>);
 	void addWatchedMovie(std::string);
 	void setUsername(std::string);
 	void setPassword(std::string);
     void saveData();
+    user readData(std::string);
 };
 
 #endif

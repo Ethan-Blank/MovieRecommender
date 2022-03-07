@@ -2,6 +2,7 @@
 #include "../header/dbElement.hpp"
 #include "../header/user.hpp"
 #include "gtest/gtest.h"
+#include <vector>
 
 #include "lib_test.cpp"
 #include "sc_test.cpp"

@@ -1,6 +1,7 @@
 #include "../header/user.hpp"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -10,6 +11,10 @@ user::user() {
 	this->watch_history = {};
 	this->username = "";
 	this->password = "";
+}
+
+user::user(string filepath) {
+	*this = readData(filepath);
 }
 
 //user::user(vector<string> directors, vector<string> genres, vector<string> watched_movies, strin un, string pw) {
@@ -62,6 +67,10 @@ void user::setPassword(string pw) {
 	this->password = pw;
 }
 
+void user::setWatchHistory(vector<string> s) {
+	this->watch_history = s;
+}
+
 void user::saveData() {
     ofstream userFile;
     string filename = this->username + ".txt";
@@ -87,7 +96,7 @@ void user::saveData() {
 	userFile << this->fav_genres.at(this->fav_genres.size()-1) << endl;
     }
     else 
-	userFile << "\"\"" << endl;
+	userFile << endl;
 
 
     // 4. Save fav directors
@@ -97,7 +106,71 @@ void user::saveData() {
 	userFile << this->fav_directors.at(this->fav_directors.size()-1) << endl;
     }
     else
-	userFile << "\"\"" << endl;
+	userFile << endl;
     
     userFile.close();
+}
+
+user user::readData(string filepath) {
+	user u;
+	ifstream userData;
+	userData.open(filepath);
+
+	stringstream line;
+	string temp;
+
+	// 1. Get un 
+	getline(userData, temp);
+	line = stringstream(temp);
+	getline(line, temp, ',');
+	u.setUsername(temp);
+
+	// 2. Get watch_history 
+	// TODO probably will fuck up if a movie title contains a '"'
+	vector<string> v; 
+	getline(userData, temp);
+	line = stringstream(temp);
+	getline(line, temp, '"');
+	while (!line.eof()) {
+		// Get Title
+		getline(line, temp, '"');
+		
+		// Add Title
+		v.push_back(temp);	
+
+		// Clear first quotation mark and "check" if line.eof()
+		getline(line, temp, '"');
+	}
+	u.setWatchHistory(v);	
+
+	// 3. Get fav_genres
+	v.clear();
+	getline(userData, temp);
+	line = stringstream(temp);
+	while (!line.eof()) {
+		getline(line, temp, ',');
+		v.push_back(temp);
+	
+		getline(line, temp, ' ');
+		if (line.eof()) break;
+	}
+	u.setFavGenres(v);
+	
+	// 4. Get fav_directors
+	v.clear();
+	getline(userData, temp);
+	line = stringstream(temp);
+	getline(line, temp, ',');
+	//while (!line.eof()) {
+	while (true) {
+		v.push_back(temp);
+
+		getline(line, temp, ' ');
+		if (line.eof()) break;		
+
+		getline(line, temp, ',');
+	}
+	u.setFavDirectors(v);
+	
+	return u;
 }
