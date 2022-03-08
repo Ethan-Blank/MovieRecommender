@@ -55,4 +55,16 @@ TEST(UserTests, readData2) {
 	EXPECT_EQ(joe.getFavGenres(), genres); 
 	EXPECT_EQ(joe.getFavDirectors(), dirs); 
 }
+
+TEST(UserTests, removedir) {
+	user joe("user_data/Joe.txt");
+        std::vector<std::string> movies = { "Movie1", "Movie 2" };
+        std::vector<std::string> genres = { "Action", "Drama" };
+        std::vector<std::string> dirs = { "Edgar Wright", "Booty Butthole" };
+	
+	joe.removeFavDirectors("Steven Spielberg");
+	
+	EXPECT_EQ(joe.getFavDirectors, dirs);
+}
+
 #endif 
