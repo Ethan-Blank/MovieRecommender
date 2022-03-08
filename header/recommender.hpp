@@ -15,5 +15,7 @@ class recommender {
 
     public:
 	Recommender();
-	virtual vector<dbElement> reccommend(searchCriteria) = 0;
+	virtual vector<dbElement> reccommend(SearchCriteria) = 0;
 };
+
+#endif 

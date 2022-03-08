@@ -1,4 +1,5 @@
 #include "../header/library.hpp"
+#include "../header/recommender.hpp"
 #include "gtest/gtest.h"
 
 #include "lib_test.cpp"

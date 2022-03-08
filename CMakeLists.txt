@@ -9,6 +9,7 @@ ADD_EXECUTABLE(test
 	src/dbElement.cpp
 	src/library.cpp
 	src/searchCriteria.cpp
+	src/recommender.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
