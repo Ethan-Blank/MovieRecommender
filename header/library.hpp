@@ -12,6 +12,7 @@ class Library {
 		Library(std::string);
 		std::vector<dbElement> fileToData(std::string);	
 		int searchByTitle(std::string);
+		std::vector<dbElement> getDatabase();
 };
 
 #endif

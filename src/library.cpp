@@ -83,3 +83,7 @@ int Library::searchByTitle(string title) {
 			return i;
 	return -1;
 }
+
+vector<dbElement> Library::getDatabase() {
+	return this->movies;
+}
