@@ -58,13 +58,30 @@ TEST(UserTests, readData2) {
 
 TEST(UserTests, removedir) {
 	user joe("user_data/Joe.txt");
-        std::vector<std::string> movies = { "Movie1", "Movie 2" };
-        std::vector<std::string> genres = { "Action", "Drama" };
         std::vector<std::string> dirs = { "Edgar Wright", "Booty Butthole" };
 	
 	joe.removeFavDirectors("Steven Spielberg");
 	
 	EXPECT_EQ(joe.getFavDirectors, dirs);
 }
+
+TEST(UserTests, removemovie) {
+        user joe("user_data/Joe.txt");
+        std::vector<std::string> movies = { "Movie 2" };
+        
+        joe.removeWatchedMovie("Movie1");
+
+        EXPECT_EQ(joe.WatchHistory, movies);
+}
+
+TEST(UserTests, removegenres) {
+        user joe("user_data/Joe.txt");
+        std::vector<std::string> genres = { "Action", "Drama" };
+
+        joe.removeGenres("Action");
+
+        EXPECT_EQ(joe.getGenres, genres);
+}
+
 
 #endif 
