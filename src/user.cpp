@@ -58,3 +58,36 @@ void user::setUsername(string un) {
 void user::setPassword(string pw) {
 	this->password = pw;
 }
+
+void user::removeFavDirectors(string directors){
+	for (auto it = fav_directors.begin(); it != fav_directors.end(); i++) {
+		if (*it == directors) {
+			fav_directors.erase(it);
+			return;
+		}
+	}
+}
+
+void user::removeGenres(strings genres){
+	for(auto it = fav_genres.begin(); it != fav_genres; i++){
+		if (*it == genres){
+			fav_genres.erease(it);
+			return;
+		}
+	} 
+}
+
+void user::removeWatchedMoive(string movie){
+	for (auto it = watch_history.begin(); it != ; i++){
+                if (*it == movie){
+                        watch_history.erease(it);
+                        return;
+                }
+        }
+}
+
+
+
+
+
+

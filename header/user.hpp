@@ -24,7 +24,10 @@ class user {
 	void addWatchedMovie(std::string);
 	void setUsername(std::string);
 	void setPassword(std::string);
-};
+	void removeFavDirectors(std::string);
+	void removeGenres(std::string);
+	void removeWatchedMovie(std::string);
+}
 
 #endif
 
