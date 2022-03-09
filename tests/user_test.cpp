@@ -1,6 +1,8 @@
 #ifndef __USER_TESTS__
 #define __USER_TESTS__
 
+//construction and set tests
+
 TEST(UserTests, EmptyConstructAndSet) {
     user joe;
     std::string un = "j0e";
@@ -19,6 +21,8 @@ TEST(UserTests, EmptyConstructAndSet) {
 
 }
 
+//save data tests
+
 TEST(UserTests, saveData1) {
 	//user joe("Joe", "Shmo", {}, {}, {});
 	user joe("Joe", "Shmo", {"Edgar Wright", "Steven Spielberg", "Booty Butthole" }, {"Action", "Drama"}, {"Movie1", "Movie 2"});
@@ -29,6 +33,8 @@ TEST(UserTests, saveData2) {
 	user may("May", "Balls", {"Bruce Wayne", "Bruce Willis", "Jimothy"}, {"Horror", "Thriller"}, {"The Conjuring", "Chuckie"});
 	may.saveData();
 }
+
+//read data tests
 
 TEST(UserTests, readData1) {
 	user joe("user_data/Joe.txt");
@@ -55,6 +61,42 @@ TEST(UserTests, readData2) {
 	EXPECT_EQ(joe.getFavGenres(), genres); 
 	EXPECT_EQ(joe.getFavDirectors(), dirs); 
 }
+
+
+//add fuction tests
+
+TEST(UserTests, addDir) {
+        user Jane("Jane", "Doe", {"J.J. Abrams", "Greta Gerwig"}, {"Drama", "Sci-Fi", "RomCom"},{"Little Women", "Endgame", "Clueless"} );
+        std::vector<std::string> dirs = {"J.J. Abrams","Greta Gerwig","James Cameron"};
+
+        Jane.addFavDirectors("James Cameron");
+
+        EXPECT_EQ(Jane.getFavDirectors(), dirs);
+}
+
+TEST(UserTests, addGenres) {
+        user Jane("Jane", "Doe", {"J.J. Abrams","James Cameron", "Greta Gerwig"}, {"Drama", "Sci-Fi"},{"Little Women", "Endgame", "Clueless"} );
+        std::vector<std::string> gens = {"Drama", "Sci-Fi","RomCom" };
+
+        Jane.addFavGenres("RomCom");
+
+        EXPECT_EQ(Jane.getFavGenres(), gens);
+}
+
+TEST(UserTests, addMovie) {
+        user Jane("Jane", "Doe", {"J.J. Abrams","James Cameron", "Greta Gerwig"}, {"Drama", "Sci-Fi", "RomCom"},{"Endgame", "Clueless"} );
+        std::vector<std::string> movies = {"Endgame", "Clueless", "Little Women" };
+
+        Jane.addWatchedMovie("Little Women");
+
+        EXPECT_EQ(Jane.getWatchHistory(), movies);
+}
+
+
+
+
+
+//remove function tests
 
 TEST(UserTests, removedir) {
 	user Jane("Jane", "Doe", {"J.J. Abrams","James Cameron", "Greta Gerwig"}, {"Drama", "Sci-Fi", "RomCom"},{"Little Women", "Endgame", "Clueless"} );
