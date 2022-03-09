@@ -6,16 +6,22 @@
 #include "../header/user.hpp"
 #include <string>
 #include <vector>
+#include <iostream>
 
-using namespace std;
-
-class recommender {
+class Recommender {
     private:
-	vector<dbElement> sortByRating(vector<dbElement>);
+	std::vector<dbElement> sortByRating(std::vector<dbElement>);
 
     public:
-	Recommender();
-	virtual vector<dbElement> reccommend(SearchCriteria) = 0;
+	virtual std::vector<dbElement> recommend(Library*, SearchCriteria) = 0;
+};
+
+
+class concRec1 : public Recommender {
+	public:
+		std::vector<dbElement> recommend(Library*, SearchCriteria) {
+			return std::vector<dbElement>();
+		}
 };
 
 #endif 
