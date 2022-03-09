@@ -77,9 +77,79 @@ vector<dbElement> Library::fileToData(string filename) {
 	return retval;
 }
 
-int Library::searchByTitle(string title) {
-	for (size_t i = 0; i < movies.size(); i++) 
+dbElement Library::searchByTitle(string title) {
+	int i;
+
+	for (i = 0; i < movies.size(); i++) 
 		if (movies.at(i).getTitle() == title)
-			return i;
+			return movies.at(i);
 	return -1;
 }
+
+vector<dbElement> Library::searchByGenre(string genre) {
+	vector<dbElement> genreList = {};
+	int i;
+	int j;
+
+	for (i = 0; i < movies.size(); i++) {
+		vector<string> movieGenres = movies.at(i).getGenres(); 
+		for (j = 0; j < movieGenres.size(); j++) {
+			if (movieGenres.at(j) == genre) {
+				genreList.push_back(movies.at(i));
+				j = movieGenres.size();
+			}
+		}
+	}
+
+	return genreList;
+}
+
+vector<dbElement> Library::searchByDirector(string director) {
+	vector<dbElement> directorList = {};
+	int i;
+
+	for (i = 0; i < movies.size(); i++) {
+		if (movies.at(i).getDirector() == director) {
+			directorList.push_back(movies.at(i));
+		}
+	}
+
+	return directorList;
+}
+
+vector<dbElement> Library::searchAboveRating(float rating) {
+	vector<dbElement> ratingList = {};
+	int i;
+
+	for (i = 0; i < movies.size(); i++) {
+		if (movies.at(i).getRating() > rating) {
+			ratingList.push_back(movies.at(i));
+		}
+	}
+
+	return ratingList;
+}
+
+vector<dbElement> Library::searchByYear(int year) {
+	vector<dbElement> yearList = {};
+	int i;
+
+	for (i = 0; movies.size(); i++) {
+		if (movies.at(i).getYear == year) {
+			yearList.push_back(movies.at(i));
+		}
+	}
+	
+	return yearList;
+}
+
+
+
+
+
+
+
+
+
+
+

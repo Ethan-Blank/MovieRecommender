@@ -3,15 +3,23 @@
 #include "dbElement.hpp"
 #include <vector>
 
+using namespace std;
+
 class Library {
-	std::vector<dbElement> movies;
+	vector<dbElement> movies;
 	// User u;
 	// GUI g;
 	
 	public:
-		Library(std::string);
-		std::vector<dbElement> fileToData(std::string);	
-		int searchByTitle(std::string);
+		Library(string);
+		vector<dbElement> fileToData(string);
+	
+		dbElement searchByTitle(string);
+		vector<dbElement> searchByGenre(string);
+		vector<dbElement> searchByDirector(string);
+		vector<dbElement> searchAboveRating(float);
+		vector<dbElement> searchByYear(int);
+		
 };
 
 #endif

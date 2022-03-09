@@ -4,19 +4,20 @@
 #include<vector>
 
 class dbElement {
-	private:
+    private:
 	std::string title;
 	std::string director;
 	std::vector<std::string> genres;
 	int year;	
 	float rating;
 
-	public:
+    public:
 	dbElement();
 	dbElement(std::string, std::string, int, float);
 	std::string getTitle();
 	std::string getDirector();
 	int getYear();
+	vector<std::string> getGenres();
 	float getRating();
 	void setTitle(std::string);
 	void setDirector(std::string);

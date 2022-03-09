@@ -48,9 +48,14 @@ int dbElement::getYear(){
 	return this->year;
 }
 
+vector<string> dbElement::getGenres() {
+	return this->genres;
+
 float dbElement::getRating(){
 	return this->rating;
 }
+
+
 
 void dbElement::print() {
 	cout << title << ", ";
