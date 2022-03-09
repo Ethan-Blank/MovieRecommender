@@ -26,9 +26,11 @@ TEST(LibraryTest, fileToDataDirector) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
 	
-	std::string director = "Mel Gibson"; 
+	//std::string director = "Mel Gibson"; 
+	std::string director = "James Gunn"; 
 	std::vector<dbElement> moviesDirector = lib.searchByDirector(director);
-	EXPECT_EQ(moviesDirector.at(0).getTitle(), "Hacksaw Ridge");
+	//EXPECT_EQ(moviesDirector.at(0).getTitle(), "Hacksaw Ridge");
+	EXPECT_EQ(moviesDirector.at(0).getTitle(), "Guardians of the Galaxy");
 }
 
 TEST(LibraryTest, fileToDataRating) {

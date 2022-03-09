@@ -43,7 +43,7 @@ vector<dbElement> Library::fileToData(string filename) {
 			}
 			temp = temp.substr(0, temp.size()-1); // Get rid of ',' at the end
 			genres.push_back(temp);
-			getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
+			//getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
 		}
 		else {	// Singular genre
 			getline(ss, temp, ',');
@@ -81,7 +81,7 @@ dbElement Library::searchByTitle(string title) {
 	int i;
 
 	for (i = 0; i < movies.size(); i++) 
-		if (movies.at(i).getTitle() == title)
+		if (movies.at(i).getTitle().compare(title) == 0)
 			return movies.at(i);
 	return dbElement();
 }
@@ -94,7 +94,8 @@ vector<dbElement> Library::searchByGenre(string genre) {
 	for (i = 0; i < movies.size(); i++) {
 		vector<string> movieGenres = movies.at(i).getGenres(); 
 		for (j = 0; j < movieGenres.size(); j++) {
-			if (movieGenres.at(j) == genre) {
+			if (movieGenres.at(j).compare(genre) == 0) 
+			{
 				genreList.push_back(movies.at(i));
 				j = movieGenres.size();
 			}
@@ -109,7 +110,8 @@ vector<dbElement> Library::searchByDirector(string director) {
 	int i;
 
 	for (i = 0; i < movies.size(); i++) {
-		if (movies.at(i).getDirector() == director) {
+		if(movies.at(i).getDirector().compare(director) == 0) 
+		{
 			directorList.push_back(movies.at(i));
 		}
 	}
