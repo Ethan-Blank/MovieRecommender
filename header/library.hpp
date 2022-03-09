@@ -5,8 +5,8 @@
 #include "user.hpp"
 #include <vector>
 
-class Recommender;
 class UserRecommender;
+class SearchRecommender;
 class Library {
 	std::vector<dbElement> movies;
 	// User u;
@@ -17,8 +17,9 @@ class Library {
 		std::vector<dbElement> fileToData(std::string);	
 		int searchByTitle(std::string);
 		std::vector<dbElement> acceptUR(UserRecommender*, user*);
-		std::vector<dbElement> acceptSR(Recommender*, std::string, std::string);
+		std::vector<dbElement> acceptSR(SearchRecommender*, std::string, std::string);
 };
 
 #include "recommender.hpp"
+#include "searchRecommender.hpp"
 #endif
