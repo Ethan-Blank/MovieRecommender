@@ -55,4 +55,36 @@ TEST(UserTests, readData2) {
 	EXPECT_EQ(joe.getFavGenres(), genres); 
 	EXPECT_EQ(joe.getFavDirectors(), dirs); 
 }
+
+TEST(UserTests, removedir) {
+	user Jane("Jane", "Doe", {"J.J. Abrams","James Cameron", "Greta Gerwig"}, {"Drama", "Sci-Fi", "RomCom"},{"Little Women", "Endgame", "Clueless"} );
+        std::vector<std::string> dirs = {"J.J. Abrams", "Greta Gerwig" };
+        
+        Jane.removeFavDirectors("James Cameron"); 
+
+        EXPECT_EQ(Jane.getFavDirectors(), dirs);
+}
+
+TEST(UserTests, removeGenres) {
+        user Jane("Jane", "Doe", {"J.J. Abrams","James Cameron", "Greta Gerwig"}, {"Drama", "Sci-Fi", "RomCom"},{"Little Women", "Endgame", "Clueless"} );
+        std::vector<std::string> gens = {"Drama", "Sci-Fi" };
+
+        Jane.removeGenres("RomCom");
+
+        EXPECT_EQ(Jane.getFavGenres(), gens);
+}
+
+TEST(UserTests, removeMovie) {
+        user Jane("Jane", "Doe", {"J.J. Abrams","James Cameron", "Greta Gerwig"}, {"Drama", "Sci-Fi", "RomCom"},{"Little Women", "Endgame", "Clueless"} );
+        std::vector<std::string> movies = {"Endgame", "Clueless" };
+
+        Jane.removeWatchedMovies("Little Women");
+
+        EXPECT_EQ(Jane.getWatchHistory(), movies);
+}
+
+
+
+
+
 #endif 

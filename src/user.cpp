@@ -59,6 +59,14 @@ void user::addWatchedMovie(string movie) {
 	this->watch_history.push_back(movie);
 }
 
+void user::addFavDirectors(string dir){
+	this->fav_directors.push_back(dir);
+}
+
+void user::addFavGenres(string genre){
+	this->fav_genres.push_back(genre);
+}
+
 void user::setUsername(string un) {
 	this->username = un;
 }
@@ -174,3 +182,37 @@ user user::readData(string filepath) {
 	
 	return u;
 }
+
+void user::removeFavDirectors(string directors){
+	for (auto it = fav_directors.begin(); it != fav_directors.end(); it++) {
+		if (*it == directors) {
+			fav_directors.erase(it);
+			return;
+		}
+	}
+}
+
+void user::removeGenres(string genres){
+	for(auto it = fav_genres.begin(); it != fav_genres.end(); it++){
+		if (*it == genres){
+			fav_genres.erase(it);
+			return;
+		}
+	} 
+}
+
+void user::removeWatchedMovies(string movie){
+	for (auto it = watch_history.begin(); it != watch_history.end(); it++){
+                if (*it == movie){
+                        watch_history.erase(it);
+                        return;
+                }
+        }
+}
+
+
+
+
+
+
+
