@@ -1,40 +1,50 @@
 #ifndef __LIB_TEST__
 #define __LIB_TEST__
 
-TEST(LibraryTest, fileToData1) {
+TEST(LibraryTest, fileToDataTitle) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
 	
 	std::string title = "Guardians of the Galaxy";
-	dbElement movie1 = lib.searchByTitle(title);
-	EXPECT_EQ(movie1.getTitle(), title);
+	dbElement moviesTitle = lib.searchByTitle(title);
+	EXPECT_EQ(moviesTitle.getTitle(), title);
 }
 
-TEST(LibraryTest, fileToData2) {
+TEST(LibraryTest, fileToDataGenre) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
 
-	std::string title = "Why Him?";
-	int index = lib.searchByTitle(title);
-	EXPECT_EQ(index, 30);
+	std::string genre = "Comedy";
+	vector<dbElement> moviesComedy = lib.searchByGenre(Comedy);
+	EXPECT_EQ(moviesComedy.at(9).getTitle(), "Why Him?");
 }
 
-TEST(LibraryTest, fileToData3) {
+TEST(LibraryTest, fileToDataDirector) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
 	
-	std::string title = "World War Z"; 
-	int index = lib.searchByTitle(title);
-	EXPECT_EQ(index, 432);
+	std::string director = "Mel Gibson"; 
+	vector<dbElement> moviesDirector = lib.searchByDirector(director);
+	EXPECT_EQ(moviesDirector.at(0).getTitle(), "Hacksaw Ridge");
+}
+
+TEST(LibraryTest, fileToDataRating)
+	std::string filename = "imdb.movie.database.txt";
+	Library lib(filename);
+
+	float rating = 8.5;
+	vector<dbElement> moviesRating = lib.searchAboveRating(rating);
+	EXPECT_EQ(moviesRating.at(1).getTitle(), "The Dark Knight");
 }
 
 TEST(LibraryTest, fileToDataNonEntry) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
-
+	
+	vector<dbElement> emptyList = {};
 	std::string title = "peepee poo"; 
-	int index = lib.searchByTitle(title);
-	EXPECT_EQ(index, -1);
+	vector<dbElement> moviesTitle = lib.searchByTitle(title);
+	EXPECT_EQ(moviesTitle, emptyList);
 }
 
 TEST(LibraryTest, fileToDataNullEntry) {
