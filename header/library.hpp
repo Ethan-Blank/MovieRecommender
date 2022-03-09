@@ -17,7 +17,7 @@ class Library {
 		std::vector<dbElement> fileToData(std::string);	
 		int searchByTitle(std::string);
 		std::vector<dbElement> acceptUR(UserRecommender*, user*);
-		std::vector<dbElement> acceptSR(SearchRecommender*, std::string, std::string);
+		std::vector<dbElement> acceptSR(SearchRecommender*, std::string);
 };
 
 #include "recommender.hpp"
