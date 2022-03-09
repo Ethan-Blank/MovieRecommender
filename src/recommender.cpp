@@ -8,7 +8,7 @@
 
 using namespace std;
 
-vector<dbElement> Recommender::sortByRating(vector<dbElement> movieList) {
+vector<dbElement> UserRecommender::sortByRating(vector<dbElement> movieList) {
 	bool unsorted = true;
 	int i;
 	
