@@ -59,6 +59,14 @@ void user::addWatchedMovie(string movie) {
 	this->watch_history.push_back(movie);
 }
 
+void user::addFavDirector(string dir){
+	this->fav_directors.push_back(dir);
+}
+
+void user::addFavGenres(string genre){
+	this->fav_genres.push_back(genre);
+}
+
 void user::setUsername(string un) {
 	this->username = un;
 }
