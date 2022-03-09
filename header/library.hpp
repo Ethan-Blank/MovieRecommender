@@ -19,7 +19,6 @@ class Library {
 		vector<dbElement> searchByDirector(string);
 		vector<dbElement> searchAboveRating(float);
 		vector<dbElement> searchByYear(int);
-		
 };
 
 #endif

@@ -132,6 +132,10 @@ vector<dbElement> Library::searchAboveRating(float rating) {
 	return ratingList;
 }
 
+vector<dbElement> Library::getDatabase() {
+	return this->movies;
+}
+
 vector<dbElement> Library::searchByYear(int year) {
 	vector<dbElement> yearList = {};
 	int i;
@@ -144,6 +148,7 @@ vector<dbElement> Library::searchByYear(int year) {
 	
 	return yearList;
 }
+
 
 
 
