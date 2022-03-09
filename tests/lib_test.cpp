@@ -4,10 +4,10 @@
 TEST(LibraryTest, fileToData1) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
-
+	
 	std::string title = "Guardians of the Galaxy";
-	int index = lib.searchByTitle(title);
-	EXPECT_EQ(index, 0);
+	dbElement movie1 = lib.searchByTitle(title);
+	EXPECT_EQ(movie1.getTitle(), title);
 }
 
 TEST(LibraryTest, fileToData2) {
@@ -22,7 +22,7 @@ TEST(LibraryTest, fileToData2) {
 TEST(LibraryTest, fileToData3) {
 	std::string filename = "imdb.movie.database.txt";	
 	Library lib(filename);
-
+	
 	std::string title = "World War Z"; 
 	int index = lib.searchByTitle(title);
 	EXPECT_EQ(index, 432);
