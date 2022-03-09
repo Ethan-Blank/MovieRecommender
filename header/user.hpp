@@ -1,7 +1,7 @@
 #ifndef __USER__
 #define __USER__
 #include "../header/dbElement.hpp"
-#include "../header/library.hpp"
+//#include "../header/library.hpp"
 #include "../header/searchCriteria.hpp"
 #include <string>
 #include <vector>
