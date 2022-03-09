@@ -11,30 +11,12 @@ using namespace std;
 
 class recommender {
     private:
-	vector<dbElement> user_rec_list;
-	vector<dbElement> genre_rec_list;
-	vector<dbElement> director_rec_list;
-	vector<dbElement> recently_watched;
-
 	vector<dbElement> sortByRating(vector<dbElement>);
+	vector<dbElement> sortByPoints(vector<dbElement>, vector<int>);
+	
 
     public:
-	Recommender(vector<dbElement>, vector<dbElement>, vector<dbElement>, vector<dbElement>);
-	Recommender();
-
-	// Getters
-	vector<dbElement> getUserList();
-	vector<dbElement> getGenreList();
-	vector<dbElement> getDirectorList();
-	vector<dbElement> getRecentlyWatchedList();
-
-	// Setters
-	void setUserList(vector<dbElement);
-	void setGenreList(vector<dbElement>);
-	void setDirectorList(vector<dbElement>);
-	void setRecentlyWatchedList(vector<dbElement>);
-
-	void sortUserList();
+	vector<dbElement> sortByPreferences();
 	void sortGenreList();
 	void sortDirectorList();
 };
