@@ -88,8 +88,8 @@ vector<dbElement> Library::acceptUR(UserRecommender* r, user* u) {
 	return r->recommend(this, u);
 }
 
-vector<dbElement> Library::acceptSR(SearchRecommender* r, string cat, string sc) {
-	return r->recommend(this, cat, sc);
+vector<dbElement> Library::acceptSR(SearchRecommender* r, string sc) {
+	return r->recommend(this, sc);
 }
 
 vector<dbElement> Library::getDatabase() {
