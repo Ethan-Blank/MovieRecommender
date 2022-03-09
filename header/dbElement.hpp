@@ -17,7 +17,7 @@ class dbElement {
 	std::string getTitle();
 	std::string getDirector();
 	int getYear();
-	vector<std::string> getGenres();
+	std::vector<std::string> getGenres();
 	float getRating();
 	void setTitle(std::string);
 	void setDirector(std::string);

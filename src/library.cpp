@@ -83,7 +83,7 @@ dbElement Library::searchByTitle(string title) {
 	for (i = 0; i < movies.size(); i++) 
 		if (movies.at(i).getTitle() == title)
 			return movies.at(i);
-	return -1;
+	return dbElement();
 }
 
 vector<dbElement> Library::searchByGenre(string genre) {
@@ -135,7 +135,7 @@ vector<dbElement> Library::searchByYear(int year) {
 	int i;
 
 	for (i = 0; movies.size(); i++) {
-		if (movies.at(i).getYear == year) {
+		if (movies.at(i).getYear() == year) {
 			yearList.push_back(movies.at(i));
 		}
 	}

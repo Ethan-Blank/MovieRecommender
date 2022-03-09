@@ -50,6 +50,7 @@ int dbElement::getYear(){
 
 vector<string> dbElement::getGenres() {
 	return this->genres;
+}
 
 float dbElement::getRating(){
 	return this->rating;
