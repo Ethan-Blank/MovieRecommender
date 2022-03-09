@@ -1,8 +1,12 @@
 #include "../header/library.hpp"
+#include "../header/dbElement.hpp"
+#include "../header/user.hpp"
 #include "gtest/gtest.h"
+#include <vector>
 
 #include "lib_test.cpp"
 #include "sc_test.cpp"
+#include "user_test.cpp"
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
