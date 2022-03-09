@@ -52,6 +52,11 @@ float dbElement::getRating(){
 	return this->rating;
 }
 
+bool operator==(dbElement left, dbElement right)
+{
+	return ((left.getYear() == right.getYear()) && (left.getRating() == right.getRating()) && (left.getDirector().compare(right.getDirector()) == 0 ) && (left.getTitle().compare(right.getTitle()) == 0));
+}
+
 void dbElement::print() {
 	cout << title << ", ";
 

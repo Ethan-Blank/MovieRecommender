@@ -24,6 +24,7 @@ class dbElement {
 	void setYear(int);
 	void setRating(float);
 	void print();
+	friend bool operator==(dbElement left, dbElement right);
 };
 
 #endif  
