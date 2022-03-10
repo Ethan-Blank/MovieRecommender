@@ -31,12 +31,14 @@ int main()
 		{
 			int theChoice = 0;
 			string str;
-			while(theChoice != 1 && theChoice != 2 && theChoice != 3 && theChoice != 4)
+			while(theChoice != 1 && theChoice != 2 && theChoice != 3 && theChoice != 4 && theChoice != 5 && theChoice != 6)
 			{
 				cout << "Enter 1 to remove a favorite director: \n";
 				cout << "Enter 2 to remove a favorite genre: \n";
 				cout << "Enter 3 to add a favorite genre: \n";
 				cout << "Enter 4 to add a favorite director: \n";
+				cout << "Enter 5 to add a favorite movie: \n;
+				cout << "Enter 6 to remove a favorite movie: \n";
 				cin >> theChoice;
 				cin.ignore();
 			}
@@ -68,6 +70,18 @@ int main()
 				//cin.ignore();
 				getline(cin, str);
 				theUser.addFavDirectors(str);
+			}
+			else if(theChoice == 5)
+			{
+				cout << "Enter the movie to add: \n";
+				getline(cin, str);
+				theUser.addWatchedMovie(str);
+			}
+			else if(theChoice == 6)
+			{
+				cout << "Enter the movie to remove: \n"
+				getline(cin, str);
+				theUser.removeWatchedMovies(str);
 			}
 			else
 			{
