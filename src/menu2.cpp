@@ -2,6 +2,12 @@
 #include "../header/user.hpp"
 #include "../header/library.hpp"
 #include "../header/dbElement.hpp"
+#include "../header/recByPref.hpp"
+#include "../header/recByGenre.hpp"
+#include "../header/recByDir.hpp"
+#include "../header/searchByDirector.hpp"
+#include "../header/searchByGenre.hpp"
+#include "../header/searchByTitle.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -114,7 +120,7 @@ int main()
 		else if(menuChoice == 4)
 		{
 			RecByGenre rbg;
-			vector<dbElement> recGenList = acceptUR(&rbg, &theUser);
+			vector<dbElement> recGenList = lib.acceptUR(&rbg, &theUser);
 			cout << "Reccommendations from User's Genres: " << endl;
 			if (recGenList.size() > 10) { 
 				for (i = 0; i < 10; i++) {
@@ -135,20 +141,22 @@ int main()
 		else if(menuChoice == 6)
 		{	
 			cout << "Enter a title: ";
+			string str;
 			getline(cin, str);
 			
 			SearchByTitle sbt;
-			vector<dbElement> titleSearch = acceptSR(&sbt, str);
+			vector<dbElement> titleSearch = lib.acceptSR(&sbt, str);
 			titleSearch.at(0).print();
  
 		}
 		else if(menuChoice == 7)
 		{	//search by director
 			cout << "Enter a director: ";
+			string str;
 			getline(cin, str);
 
 			SearchByDirector sbd;
-			vector<dbElement> directorSearch = acceptSR(&sbd, str);
+			vector<dbElement> directorSearch = lib.acceptSR(&sbd, str);
 			for (i = 0; i < directorSearch.size(); i++) {
 				directorSearch.at(i).print();
 			}
@@ -157,10 +165,11 @@ int main()
 		{
 			//search by genre
 			cout << "Enter a genre: ";
+			string str;
 			getline(cin, str);
 	
 			SearchByGenre sbg;
-			vector<dbElement> genreSearch = acceptSR(&sbg, str);
+			vector<dbElement> genreSearch = lib.acceptSR(&sbg, str);
 			for (i = 0; i < 10; i++) {
 				genreSearch.at(i).print();
 			}
