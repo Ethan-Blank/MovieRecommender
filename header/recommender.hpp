@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class recommender {
+class Recommender {
     private:
 	vector<dbElement> sortByRating(vector<dbElement>);
 	vector<dbElement> sortByPoints(vector<dbElement>, vector<int>);

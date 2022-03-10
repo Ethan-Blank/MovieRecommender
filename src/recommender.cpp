@@ -65,7 +65,10 @@ vector<dbElement> Recommender::sortByPreferences(Library* theLibrary, user* theU
 	unsigned favDirSize = user->getFavDirectors().size();
 
 	
-	for(auto it = theLibrary.getMovies().begin(); it != theLibrary.getMovies.end(); ++it)
+	
+	vector<dbElement> vect = theLibrary.fileToData("imdb.movie.database.txt");
+
+	for(auto it = vect.begin(); it != vect.end(); ++it)
 	{
 		unsigned int pt = 0;
 
