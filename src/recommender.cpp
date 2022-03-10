@@ -7,37 +7,6 @@
 
 using namespace std;
 
-Recommender::Recommender(vector<dbElement> userList, vector<dbElement> genreList,vector<dbElement> directorList, vector<dbElement> recentList) {
-	this->user_rec_list = userList;
-	this->genre_rec_list = genreList;
-	this->director_rec_list = directorList;
-	this->recently_watched = recentList;
-}
-
-Recommender::Recommender() {
-	this->user_rec_list = {};
-	this->genre_rec_list = {};
-	this->director_rec_list = {};
-	this->recently_watched = {};
-}
-
-vector<dbElement> Recommender::getUserList() { return this->user_rec_list; }
-
-vector<dbElement> Recommender::getGenreList() { return this->genre_rec_list; }
-
-vector<dbElement> Recommender::getDirectorList() { return this->director_rec_list; }
-
-vector<dbElement> Recommender::getRecentlyWatchedList() { return this->recently_watched; }
-
-void Recommender::setUserList(vector<dbElement> u) { this->user_rec_list = u; }
-
-void Recommender::setGenreList(vector<dbElement> g) { this->genre_rec_list = g; }
-
-void Recommender::setDirectorList(vector<dbElement> d) { this->director_rec_list = d; }
-
-void Recommender::setRecentlyWatchedList(vector<dbELement> r) { this->recently_watched = r; }
-
-
 vector<dbElement> Recommender::sortByRating(vector<dbElement> movieList) {
 	bool unsorted = true;
 	int i;
@@ -56,7 +25,7 @@ vector<dbElement> Recommender::sortByRating(vector<dbElement> movieList) {
 	return movieList;	
 }
 
-vector<dbElement> Recommender::sortByPreferences(Library* theLibrary, user* theUser) 
+vector<dbElement> Recommender::recByPreferences(Library* theLibrary, user* theUser) 
 {
 	vector<dbElement> moviesYes = {};
 	vector<int> moviesPoints = {};
@@ -102,6 +71,33 @@ vector<dbElement> Recommender::sortByPreferences(Library* theLibrary, user* theU
 
 }
 	
+
+vector<dbElement> Recommender::recByGenre(Library* theLibrary, user* theUser){
+	vector<dbElement> moviesYes = {};
+	vector<int> moviesPoints = {};
+	
+	for (auto it theLibrary.getMovies().begin(); it != theLibrary.getMovies.end(); ++it){
+		unsigned int pt = 0;
+		for (int i = 0; i < getFavGenres().size();i++){
+			if(*it.compare(user->getFavGenres().at(i))== 0){
+				pt++
+			}
+		}	
+		if (pt>0){
+			moviesYes.push_back(*it);
+			moviesPoints.push_back(pt);
+		}
+
+	}
+	return sortByPoints(moviesYes, moviesPoints);
+
+}
+
+
+
+
+
+
 vector<dbElement> Recommender::sortByPoints(vector<dbElement> movies, vector<int> points) {
 	vector<dbElement> sortedMovies = {};
 
