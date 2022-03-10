@@ -2,11 +2,7 @@
 > Authors: [Nanma Pillai](https://github.com/nanmasp), [Owen Ribera](https://github.com/TheLadd), [Michael Deriss](https://github.com/MichaelJDeriss), [Ethan Blank](https://github.com/Ethan-Blank) 
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- >   * Project provides an opportunity to learn a GUI framework
- >   * Project provides a utility that all group members find useful 
- >   * Project provides an opportunity for creativity
+ > This application stores a list of movies along with their genre(s), director, release year, and imdb rating.  It also stores the users' favorite genres and directors.  The application uses this information to recommend movies to the user.  The application also allows the user to search for movies based on their genre, director, or title.
  
  ### Langauges/Tools/Technologies:
 > * `Valgrind` - an instrumentation framework for building dynamic analysis tools   (assists in finding and checking memory leaks)
