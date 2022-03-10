@@ -71,6 +71,13 @@ int menu()
 }
 
 
+void setPrefMenu(user *
+
+
+
+
+
+/*
 void interpret_menu_choice(int menuChoice, user* u)
 {
 	if(menuChoice == 1)
@@ -93,6 +100,8 @@ void interpret_menu_choice(int menuChoice, user* u)
 
 	return;
 }
+*/
+
 
 
 void goodbye()
