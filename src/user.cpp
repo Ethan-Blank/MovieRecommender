@@ -99,8 +99,11 @@ void user::saveData() {
 
     // 3. Save fav genres
     if (this->fav_genres.size()) {
-	for (size_t i = 0; i < this->fav_genres.size()-1; i++ ) 
+	for (size_t i = 0; i < this->fav_genres.size()-1; i++ ) { 
 	    userFile << this->fav_genres.at(i) << ", "; 
+	    //userFile << ", " << this->fav_genres.at(i); 
+	    //cout << "flag\n";
+	    }
 	userFile << this->fav_genres.at(this->fav_genres.size()-1) << endl;
     }
     else 

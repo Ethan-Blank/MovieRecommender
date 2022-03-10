@@ -91,7 +91,7 @@ int main()
 		}
 		else if(menuChoice == 5)
 		{
-			goodbye();
+			//goodbye();
 			break;	
 		}
 		else if(menuChoice == 6)
