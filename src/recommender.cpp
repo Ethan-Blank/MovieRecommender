@@ -4,6 +4,7 @@
 #include "../header/searchCriteria.hpp"
 #include "../header/recommender.hpp"
 #include <string>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -80,15 +81,17 @@ vector<dbElement> Recommender::recByPreferences(Library* theLibrary, user* theUs
 vector<dbElement> Recommender::recByGenre(Library* theLibrary, user* theUser){
 	vector<dbElement> moviesYes = {};
 	vector<int> moviesPoints = {};
-	
+	unsigned int favGenreSize = theUser->getFavGenres().size();
 		
 	vector<dbElement> vect = theLibrary->fileToData("imdb.movie.database.txt");
 
-	vector<string> movieGenres = it->getGenres();
-
          for(auto it = vect.begin(); it != vect.end(); ++it){
+		vector<string> movieGenres = it->getGenres();
+		unsigned int pt = 0;
 		for(int i = 0; i < favGenreSize; ++i){
               		for (int j = 0; j < movieGenres.size(); j++){
+			cout << "Movie Genre: " << movieGenres.at(j);
+			cout << "\nthe user genre: " <<  theUser->getFavGenres().at(i) << endl;
                    		if(movieGenres.at(j) == theUser->getFavGenres().at(i)){
                        			++pt;
                    		}	
@@ -104,16 +107,26 @@ vector<dbElement> Recommender::recByGenre(Library* theLibrary, user* theUser){
 
 }
 
-vector<dbElement> Recommender::recByDir(Library* theLibrary, user* theUser){
+vector<dbElement> Recommender::recByDir(Library* theLibrary, user* theUser)
+{
 	vector<dbElement> moviesYes = {};
-	unsigned favDirSize = user->getFavDirectors().size();
-	for(auto it = theLibrary.getMovies().begin(); it != theLibrary.getMovies.end(); ++it){
-		for(int j  = 0; j < favDirSize; ++j){
-			if(*it.compare(user->getFavDirectors().at(j)) == 0){
+	vector<dbElement> vect = theLibrary->fileToData("imdb.movie.database.txt");
+
+	unsigned int  favDirSize = theUser->getFavDirectors().size();
+
+	for(auto it = vect.begin(); it != vect.end(); ++it)
+	{
+		for(int j = 0; j < favDirSize; ++j)
+		{
+			//cout << "it->getDirector() = " << it->getDirector() << endl;
+			//cout << theUser->getFavDirectors().at(j);
+			if(it->getDirector() == theUser->getFavDirectors().at(j))
+			{
+				//cout << it->getDirector() << endl;
 				moviesYes.push_back(*it);
 			}
 		}
-
+	}	
 	return moviesYes;
 }
 

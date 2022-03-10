@@ -20,7 +20,8 @@ vector<dbElement> Library::fileToData(string filename) {
 
 	getline(myfile, temp); 
 	//while(!myfile.eof()) {
-	while(true) {
+	int count = 0;
+	while(count < 999) {
 		ss = stringstream(temp);
 
 		// 1. Title
@@ -29,7 +30,10 @@ vector<dbElement> Library::fileToData(string filename) {
 			getline(ss, temp, '"');
 		}
 		else
+		{
 			getline(ss, temp, ',');
+		}
+	        //cout << "Title: " << temp << endl;
 		newEntry.setTitle(temp);
 		if (ss.peek() == ',') getline(ss, temp, ','); // In case of case 1
 
@@ -43,35 +47,47 @@ vector<dbElement> Library::fileToData(string filename) {
 			}
 			temp = temp.substr(0, temp.size()-1); // Get rid of ',' at the end
 			genres.push_back(temp);
-			//getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
+			getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
 		}
 		else {	// Singular genre
 			getline(ss, temp, ',');
 			genres.push_back(temp);
 		}
-		newEntry.setGenres(genres);
+		if(temp.compare("") != 0)
+		{
+			newEntry.setGenres(genres);
+		}
 		genres.clear();
 
 		// 3. Director
-		getline(ss, temp, ',');	
-		newEntry.setDirector(temp);
+		getline(ss, temp, ',');
+		if(temp.compare("") != 0)
+		{	
+			newEntry.setDirector(temp);
+		}
+		//cout << "dir " << temp << endl; 		
 
 		// 4. Year
-		getline(ss, temp, ',');	
-		newEntry.setYear(stoi(temp));
-
+		getline(ss, temp, ',');
+		//cout << "Temp: " << temp << endl;
+		if(temp.compare("") != 0)
+		{
+			newEntry.setYear(stoi(temp));
+		}
 		// 5. Rating
-		getline(ss, temp, ',');	
-		newEntry.setRating(stof(temp));
-
+		getline(ss, temp, ',');
+		if(temp.compare("") != 0)
+		{	
+			newEntry.setRating(stof(temp));
+		}
 		// Add newEntry to database
 		retval.push_back(newEntry);
 
 		
 		getline(myfile, temp);
+		
+		++count;
 		//cerr << newEntry.getTitle() << ", " << newEntry.getDirector() << ", " << newEntry.getYear()  << ", " << newEntry.getRating() << endl;
-		if (onLastItem) break;
-		if (myfile.eof()) onLastItem = true;
 	}
 
 	return retval;
@@ -132,9 +148,12 @@ vector<dbElement> Library::searchAboveRating(float rating) {
 	return ratingList;
 }
 
+/*
 vector<dbElement> Library::getDatabase() {
 	return this->movies;
 }
+
+*/
 
 vector<dbElement> Library::searchByYear(int year) {
 	vector<dbElement> yearList = {};

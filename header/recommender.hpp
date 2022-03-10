@@ -18,6 +18,12 @@ class Recommender {
     public:
 	vector<dbElement> recByPreferences(Library*, user*);
 	vector<dbElement> recByGenre(Library*, user*);
+	
+	vector<dbElement> recByDir(Library*, user*);
+	/*
 	void sortGenreList();
 	void sortDirectorList();
+	*/
 };
+
+#endif
