@@ -20,34 +20,8 @@ user intro()
 	//Maybe add this to file?
 
 
-	vector<string> favGenres;
-	vector<string> favDirectors;
-
-	string preferences = "init";
-	for(int i = 0; preferences.compare("Exit") != 0; ++i)
-	{
-		cout << "Enter your favorite genre(s) or 'Exit': \n";
-		getline(cin, preferences);
-		favGenres.push_back(preferences);
-	}
-	favGenres.pop_back();
-
-
-
-	cout << "Enter your favorite director: \n";
-	preferences = "init";
-	for(int i = 0; preferences.compare("Exit") != 0; ++i)
-	{
-		cout << "Enter your favorite director(s) or 'Exit': \n";
-		getline(cin, preferences);
-		favDirectors.push_back(preferences);
-	}
-	favDirectors.pop_back();
 	
-	user.setFavDirectors(favDirectors);
-	user.setFavGenres(favGenres);
 	user.setUsername(str);
-
 
 
 	return user;
@@ -55,23 +29,56 @@ user intro()
 
 int menu()
 {
-	string menuChoice = "0";
+
+	cout <<  "-----------------------\n";
+	int menuChoice = 0;
 	
-	while(stoi(menuChoice) < 1 || stoi(menuChoice) > 4)
+	while(menuChoice < 1 || menuChoice > 6 && menuChoice != 3 && menuChoice != 4)
 	{
 		cout << "Enter 1 to Set User Preferences: " << endl;
                 cout << "Enter 2 to get a Movie Reccommendation: " << endl;
-                cout << "Enter 3 to Logout: " << endl;
-                cout << "Enter 4 to Search for a movie: " << endl;
-		cout << 
-                getline(cin, menuChoice); //maybe need a cin.ignore()
+                cout << "Enter 5 to Logout: (yes 5) " << endl;
+                cout << "Enter 6 to Search for a movie: (yes 6) " << endl; 
+                cin >> menuChoice; //maybe need a cin.ignore()
 	}
-	
+	cout <<  "-----------------------\n";
+
 	return menuChoice;
 }
 
 
-void setPrefMenu(user *
+int recMenu()
+{
+	cout <<  "-----------------------\n";
+	int menuChoice = 0;
+	while(menuChoice != 2 && menuChoice != 3 && menuChoice != 4)
+	{
+		cout << "Enter 2 to recommend by all preferences: \n";
+		cout << "Enter 3 to recommend by director preference: \n";
+		cout << "Enter 4 to recommend by genre preferences: \n";
+		cin >> menuChoice;
+	}
+
+	cout <<  "-----------------------\n";
+	
+	return menuChoice;
+}
+
+int searchMovie()
+{
+	cout <<  "-----------------------\n";
+	int menuChoice = 0;
+
+	while(menuChoice != 6 && menuChoice != 7 && menuChoice != 8)
+	{
+		cout << "Enter 6 to Search By Title: \n";
+		cout << "Enter 7 to Search By Director: \n";
+		cout << "Enter 8 to Search By Genre: \n";
+		cin >> menuChoice;
+	}
+	cout <<  "-----------------------\n";
+	return menuChoice;
+}
 
 
 
@@ -106,11 +113,12 @@ void interpret_menu_choice(int menuChoice, user* u)
 
 void goodbye()
 {
+	cout <<  "-----------------------\n";
 	cout << "Have a nice day!\n";
 	return;
 }
 
-
+/*
 bool searchMovie()
 {
 	//title, director, year, rating
@@ -160,7 +168,7 @@ bool searchMovie()
 }
 
 
-
+*/
 
 
 
