@@ -16,7 +16,7 @@ class recommender {
 	
 
     public:
-	vector<dbElement> sortByPreferences();
-	void sortGenreList();
-	void sortDirectorList();
+	vector<dbElement> sortByPreferences(Library*, user*);
+	void sortGenreList(Library*, user*);
+	void sortDirectorList(Library*, user*);
 };
