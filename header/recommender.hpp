@@ -9,14 +9,15 @@
 
 using namespace std;
 
-class recommender {
+class Recommender {
     private:
 	vector<dbElement> sortByRating(vector<dbElement>);
 	vector<dbElement> sortByPoints(vector<dbElement>, vector<int>);
 	
 
     public:
-	vector<dbElement> sortByPreferences();
+	vector<dbElement> recByPreferences(Library*, user*);
+	vector<dbElement> recByGenre(Library*, user*);
 	void sortGenreList();
 	void sortDirectorList();
 };
