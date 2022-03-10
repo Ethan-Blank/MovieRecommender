@@ -6,6 +6,7 @@
 #include "../header/searchByGenre.hpp"
 #include "../header/searchByDirector.hpp"
 #include "../header/searchByTitle.hpp"
+#include "../header/recByPref.hpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -15,6 +16,9 @@
 #include "user_test.cpp"
 #include "recommender_tests.cpp"
 #include "srec_test.cpp"
+#include "search_director_test.cpp"
+#include "search_genre_test.cpp"
+#include "search_title_test.cpp"
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

@@ -12,7 +12,7 @@ TEST(SearchTitleTest, TitleList) {
 	
 	SearchByTitle sbc;
 	string title = "Jason Bourne";
-	vector<dbElement> moviesJason = lib.accept(sbc, title);
+	vector<dbElement> moviesJason = lib.acceptSR(&sbc, title);
 	EXPECT_EQ(moviesJason.at(0).getTitle(), title);
 }
 

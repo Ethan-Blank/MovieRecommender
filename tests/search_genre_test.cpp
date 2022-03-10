@@ -14,7 +14,7 @@ TEST(SearchGenreTest, GenreList) {
 
 	string genre = "Action";
 	//vector<dbElement> moviesAction = sbc.recommend(&lib, genre);
-	vector<dbElement> moviesAction = lib.accept(sbc, genre);
+	vector<dbElement> moviesAction = lib.acceptSR(&sbc, genre);
 	EXPECT_EQ(moviesAction.at(1).getTitle(), "Suicide Squad");
 }
 

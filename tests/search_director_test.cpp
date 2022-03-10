@@ -12,7 +12,7 @@ TEST(SearchDirectorTest, DirectorList) {
 	
 	SearchByDirector sbc;
 	string director = "Quentin Tarantino";
-	vector<dbElement> moviesTaran = lib.accept(sbc, director);
+	vector<dbElement> moviesTaran = lib.acceptSR(&sbc, director);
 	EXPECT_EQ(moviesTaran.at(3).getTitle(), "Death Proof");
 }
 
