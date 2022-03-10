@@ -31,6 +31,7 @@ vector<dbElement> Library::fileToData(string filename) {
 		else
 			getline(ss, temp, ',');
 		newEntry.setTitle(temp);
+		//cout << "Title: " << temp << endl;
 		if (ss.peek() == ',') getline(ss, temp, ','); // In case of case 1
 
 		// 2. Genre(s)
@@ -43,33 +44,40 @@ vector<dbElement> Library::fileToData(string filename) {
 			}
 			temp = temp.substr(0, temp.size()-1); // Get rid of ',' at the end
 			genres.push_back(temp);
-			getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
+			//getline(ss, temp, ',');	// Gets rid of second " and other delimiting ,
+			//getline(ss, temp, '"');	// Gets rid of second " and other delimiting ,
 		}
 		else {	// Singular genre
 			getline(ss, temp, ',');
 			genres.push_back(temp);
 		}
+		//for (auto i : genres)
+		//	cout << i << "\t";
+		//cout << endl;
 		newEntry.setGenres(genres);
 		genres.clear();
 
 		// 3. Director
 		getline(ss, temp, ',');	
 		newEntry.setDirector(temp);
+		//cout << "Dir: " << temp << endl;
 
 		// 4. Year
 		getline(ss, temp, ',');	
 		newEntry.setYear(stoi(temp));
+		//cout << "Year: " << temp << endl;
 
 		// 5. Rating
 		getline(ss, temp, ',');	
 		newEntry.setRating(stof(temp));
+		//cout << "Rating: " << temp << endl;
 
 		// Add newEntry to database
 		retval.push_back(newEntry);
 
 		
 		getline(myfile, temp);
-		//cerr << newEntry.getTitle() << ", " << newEntry.getDirector() << ", " << newEntry.getYear()  << ", " << newEntry.getRating() << endl;
+		cerr << newEntry.getTitle() << ", " << newEntry.getDirector() << ", " << newEntry.getYear()  << ", " << newEntry.getRating() << endl;
 		if (onLastItem) break;
 		if (myfile.eof()) onLastItem = true;
 	}
