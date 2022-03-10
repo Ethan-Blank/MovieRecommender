@@ -2,13 +2,14 @@
 #include "../header/dbElement.hpp"
 #include "../header/library.hpp"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
 
 user intro()
 {
-	user user;
+	user u;
 	cout <<  "-----------------------\n";
 	cout << "CS100 MOVIE RECCOMENDER PROJECT BY MICHAEL, NANMA, ETHAN AND OWEN!!!\n";
 	cout << "WINTER 2022\n";
@@ -19,12 +20,18 @@ user intro()
 	getline(cin, str); //maybe add cin.ignore()
 	//Maybe add this to file?
 
+	string filepath = "user_data/" + str + ".txt";
+	ifstream file(filepath);
 
-	
-	user.setUsername(str);
+	if (file.good()) {
+		u = user(filepath);
+	}	
+	else {
+		u.setUsername(str);
+	}
 
 
-	return user;
+	return u;
 }
 
 int menu()
