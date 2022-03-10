@@ -2,6 +2,7 @@
 #include "../header/library.hpp"
 #include "../header/user.hpp"
 #include "../header/searchCriteria.hpp"
+#include "../header/recommender.hpp"
 #include <string>
 #include <vector>
 
@@ -30,28 +31,32 @@ vector<dbElement> Recommender::recByPreferences(Library* theLibrary, user* theUs
 	vector<dbElement> moviesYes = {};
 	vector<int> moviesPoints = {};
 	
-	unsigned favGenreSize = user->getFavGenres().size();
-	unsigned favDirSize = user->getFavDirectors().size();
+	unsigned favGenreSize = theUser->getFavGenres().size();
+	unsigned favDirSize = theUser->getFavDirectors().size();
 
 	
 	
-	vector<dbElement> vect = theLibrary.fileToData("imdb.movie.database.txt");
+	vector<dbElement> vect = theLibrary->fileToData("imdb.movie.database.txt");
 
 	for(auto it = vect.begin(); it != vect.end(); ++it)
 	{
 		unsigned int pt = 0;
+		vector<string> movieGenres = it->getGenres();		
 
 		for(int i = 0; i < favGenreSize; ++i)
-		{
-			if(*it.compare(user->getFavGenres().at(i)) == 0)
+		{	
+			for (int j = 0; j < movieGenres.size(); j++)
 			{
-				++pt;
-			}	
+				if(movieGenres.at(j) == theUser->getFavGenres().at(i))
+				{
+					++pt;
+				}	
+			}
 		}
 
-		for(int j  = 0; j < favDirSize; ++j)
+		for(int k  = 0; k < favDirSize; ++k)
 		{
-			if(*it.compare(user->getFavDirectors().at(j)) == 0)
+			if(it->getDirector() == theUser->getFavDirectors().at(k))
 			{
 				++pt;
 			}
@@ -76,14 +81,20 @@ vector<dbElement> Recommender::recByGenre(Library* theLibrary, user* theUser){
 	vector<dbElement> moviesYes = {};
 	vector<int> moviesPoints = {};
 	
-	for (auto it theLibrary.getMovies().begin(); it != theLibrary.getMovies.end(); ++it){
-		unsigned int pt = 0;
-		for (int i = 0; i < getFavGenres().size();i++){
-			if(*it.compare(user->getFavGenres().at(i))== 0){
-				pt++
-			}
-		}	
-		if (pt>0){
+		
+	vector<dbElement> vect = theLibrary->fileToData("imdb.movie.database.txt");
+
+	vector<string> movieGenres = it->getGenres();
+
+         for(auto it = vect.begin(); it != vect.end(); ++it){
+		for(int i = 0; i < favGenreSize; ++i){
+              		for (int j = 0; j < movieGenres.size(); j++){
+                   		if(movieGenres.at(j) == theUser->getFavGenres().at(i)){
+                       			++pt;
+                   		}	
+               		}
+      		}
+	      	if (pt>0){
 			moviesYes.push_back(*it);
 			moviesPoints.push_back(pt);
 		}
@@ -93,7 +104,18 @@ vector<dbElement> Recommender::recByGenre(Library* theLibrary, user* theUser){
 
 }
 
+vector<dbElement> Recommender::recByDir(Library* theLibrary, user* theUser){
+	vector<dbElement> moviesYes = {};
+	unsigned favDirSize = user->getFavDirectors().size();
+	for(auto it = theLibrary.getMovies().begin(); it != theLibrary.getMovies.end(); ++it){
+		for(int j  = 0; j < favDirSize; ++j){
+			if(*it.compare(user->getFavDirectors().at(j)) == 0){
+				moviesYes.push_back(*it);
+			}
+		}
 
+	return moviesYes;
+}
 
 
 
@@ -107,7 +129,7 @@ vector<dbElement> Recommender::sortByPoints(vector<dbElement> movies, vector<int
 	for (x = 7; x > 0; x--) {
 		for(y = 0; y < movies.size(); y++) {
 			if (x == points.at(y)) {
-				sortedMovies.push_back(movies.at(y);
+				sortedMovies.push_back(movies.at(y));
 			}
 		}
 	}
