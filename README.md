@@ -29,9 +29,9 @@ This application stores a list of movies along with their genre(s), director, re
  ## Installation/Usage
  1. To use this program, it requires a few simple requriements to be installed and that's it.
  2. Clone this repository recursively (it should include googletest).
- 4. In order to run, simply run `cmake .` or if on hammer `cmake3 .`
- 5. Then compile with `make`.
- 6. You should have your compiled files ready now. To run the tests simply type `./test`. To run the program run `./recommend`.
+ 3. In order to run, simply run `cmake .` or if on hammer `cmake3 .`
+ 4. Then compile with `make`.
+ 5. You should have your compiled files ready now. To run the tests simply type `./test`. To run the program run `./main`.
   
  ## Testing
  To test the program, we created specialized unit tests to test the most important parts of the program. We made sure all of them passed before proceeding on working on other items. We made sure to test after every change. To check the tests you simply run `./test` after compiling with cmake. Additionally we did extensive user testing on out menu so ensure that the user is reciving the right output. We also made sure to check the valgrind report (depicted below) by running `valgrind ./test`. 
