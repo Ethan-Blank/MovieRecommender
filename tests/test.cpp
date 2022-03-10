@@ -2,6 +2,10 @@
 #include "../header/recommender.hpp"
 #include "../header/dbElement.hpp"
 #include "../header/user.hpp"
+#include "../header/searchRecommender.hpp"
+#include "../header/searchByGenre.hpp"
+#include "../header/searchByDirector.hpp"
+#include "../header/searchByTitle.hpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -9,6 +13,7 @@
 #include "sc_test.cpp"
 #include "rec_test.cpp"
 #include "user_test.cpp"
+#include "srec_test.cpp"
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
