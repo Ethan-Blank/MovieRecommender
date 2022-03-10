@@ -1,4 +1,5 @@
 #include "../header/library.hpp"
+#include "../header/recommender.hpp"
 #include "../header/dbElement.hpp"
 #include "../header/user.hpp"
 #include "../header/recommender.hpp"
@@ -7,6 +8,7 @@
 
 #include "lib_test.cpp"
 #include "sc_test.cpp"
+#include "rec_test.cpp"
 #include "user_test.cpp"
 #include "recommender_tests.cpp"
 

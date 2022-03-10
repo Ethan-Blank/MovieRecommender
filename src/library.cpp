@@ -148,12 +148,18 @@ vector<dbElement> Library::searchAboveRating(float rating) {
 	return ratingList;
 }
 
-/*
+
+vector<dbElement> Library::acceptUR(UserRecommender* r, user* u) {
+	return r->recommend(this, u);
+}
+
+vector<dbElement> Library::acceptSR(SearchRecommender* r, string sc) {
+	return r->recommend(this, sc);
+}
+
 vector<dbElement> Library::getDatabase() {
 	return this->movies;
 }
-
-*/
 
 vector<dbElement> Library::searchByYear(int year) {
 	vector<dbElement> yearList = {};
