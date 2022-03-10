@@ -19,6 +19,7 @@ ADD_EXECUTABLE(test
 	src/searchCriteria.cpp
 	src/recommender.cpp
 	src/user.cpp
+	src/recommender.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
