@@ -7,7 +7,7 @@
  >   * Project provides an opportunity to learn a GUI framework
  >   * Project provides a utility that all group members find useful 
  >   * Project provides an opportunity for creativity
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ ### What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
  >   * C++ 
  >   * GitHub
