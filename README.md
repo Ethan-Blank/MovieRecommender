@@ -38,5 +38,5 @@
  > 6. You should have your compiled files ready now. To run the tests simply type `./test`. To run the program run `./recommend`.
  > 
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > To test the program, we created specialized unit tests to test the most important parts of the program. We made sure all of them passed before proceeding on working on other items. We made sure to test after every change. To check the tests you simply run `./test` after compiling with cmake. We also made sure to check the valgrind report (depicted below) by running `valgrind ./test`. 
  
