@@ -29,7 +29,7 @@ class Recommender {
 
 class UserRecommender {
     private:
-	std::vector<dbElement> sortByRating(std::vector<dbElement>);
+	//std::vector<dbElement> sortByRating(std::vector<dbElement>);
 
     public:
 	virtual std::vector<dbElement> recommend(Library*, user*) = 0;
