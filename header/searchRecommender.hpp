@@ -9,4 +9,8 @@ class SearchRecommender {
 		virtual std::vector<dbElement> recommend(Library*, std::string) = 0;
 };
 
+class SearchByDirector : public SearchRecommender { public: std::vector<dbElement> recommend(Library*, std::string); };
+class SearchByGenre : public SearchRecommender { public: std::vector<dbElement> recommend(Library*, std::string); };
+class SearchByTitle : public SearchRecommender { public: std::vector<dbElement> recommend(Library*, std::string); };
+
 #endif
