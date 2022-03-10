@@ -2,4 +2,6 @@
 #include <vector>
 using namespace std;
 
-vector<dbElement> SearchByGenre::recommend(Library* l, string sc) {}
+vector<dbElement> SearchByGenre::recommend(Library* l, string sc) {
+	return l->searchByGenre(sc);
+}
