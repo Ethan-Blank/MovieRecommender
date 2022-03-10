@@ -28,7 +28,7 @@ ADD_EXECUTABLE(test
 )
 
 ADD_EXECUTABLE(main
-	src/main.cpp
+	#src/main.cpp
 	src/dbElement.cpp
 	src/library.cpp
 	src/searchCriteria.cpp
