@@ -93,8 +93,8 @@ vector<dbElement> Recommender::recByGenre(Library* theLibrary, user* theUser){
 		unsigned int pt = 0;
 		for(int i = 0; i < favGenreSize; ++i){
               		for (int j = 0; j < movieGenres.size(); j++){
-			cout << "Movie Genre: " << movieGenres.at(j);
-			cout << "\nthe user genre: " <<  theUser->getFavGenres().at(i) << endl;
+			//cout << "Movie Genre: " << movieGenres.at(j);
+			//cout << "\nthe user genre: " <<  theUser->getFavGenres().at(i) << endl;
                    		if(movieGenres.at(j) == theUser->getFavGenres().at(i)){
                        			++pt;
                    		}	

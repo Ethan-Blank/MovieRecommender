@@ -47,7 +47,7 @@ int main()
 				cout << "Enter 2 to remove a favorite genre: \n";
 				cout << "Enter 3 to add a favorite genre: \n";
 				cout << "Enter 4 to add a favorite director: \n";
-				cout << "Enter 5 to add a favorite movie: \n;
+				cout << "Enter 5 to add a favorite movie: \n";
 				cout << "Enter 6 to remove a favorite movie: \n";
 				cin >> theChoice;
 				cin.ignore();
@@ -89,7 +89,7 @@ int main()
 			}
 			else if(theChoice == 6)
 			{
-				cout << "Enter the movie to remove: \n"
+				cout << "Enter the movie to remove: \n";
 				getline(cin, str);
 				theUser.removeWatchedMovies(str);
 			}
@@ -103,8 +103,8 @@ int main()
 			RecByPref rbp;
 			vector<dbElement> recPrefList = lib.acceptUR(&rbp, &theUser);
 			cout << "Recommendations from User Preferences: " << endl;
-			if (recPrefList.size() > 10) {
-				for (i = 0; i < 10; i++) {
+			if (recPrefList.size() > 25) {
+				for (i = 0; i < 25; i++) {
 					recPrefList.at(i).print();
 				}
 			}
@@ -156,6 +156,7 @@ int main()
 		{	
 			cout << "Enter a title: ";
 			string str;
+			cin.ignore();
 			getline(cin, str);
 			
 			SearchByTitle sbt;
@@ -167,6 +168,7 @@ int main()
 		{	//search by director
 			cout << "Enter a director: ";
 			string str;
+			cin.ignore();
 			getline(cin, str);
 
 			SearchByDirector sbd;
@@ -180,6 +182,7 @@ int main()
 			//search by genre
 			cout << "Enter a genre: ";
 			string str;
+			cin.ignore();
 			getline(cin, str);
 	
 			SearchByGenre sbg;

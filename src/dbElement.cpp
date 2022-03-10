@@ -73,5 +73,5 @@ void dbElement::print() {
 	}
 	cout << "\", ";
 
-	cout << director << ", " << year << rating << endl;
+	cout << director << ", " << year << ", " << rating << endl;
 }

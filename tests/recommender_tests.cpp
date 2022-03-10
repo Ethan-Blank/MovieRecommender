@@ -96,7 +96,7 @@ TEST(Recommender, DirectorTest)
 	
 	vector<dbElement> vect = theRecommender.recByDir(ptr1, ptr2); 
 	
-	cout << "Size: " << vect.size() << endl;	
+	//cout << "Size: " << vect.size() << endl;	
 
 	EXPECT_EQ("Luke Greenfield", vect.at(0).getDirector());
 
