@@ -27,7 +27,7 @@ class Recommender {
 };
 
 
-class UserRecommender {
+class UserRecommender : public Recommender {
     private:
 	//std::vector<dbElement> sortByRating(std::vector<dbElement>);
 

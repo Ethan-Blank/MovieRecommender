@@ -7,6 +7,7 @@
 #include "../header/searchByDirector.hpp"
 #include "../header/searchByTitle.hpp"
 #include "../header/recByPref.hpp"
+#include "../header/recByDir.hpp"
 #include "gtest/gtest.h"
 #include <vector>
 
