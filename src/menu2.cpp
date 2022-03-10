@@ -2,7 +2,15 @@
 #include "../header/user.hpp"
 #include "../header/library.hpp"
 #include "../header/dbElement.hpp"
+#include "../header/recByPref.hpp"
+#include "../header/recByGenre.hpp"
+#include "../header/recByDir.hpp"
+#include "../header/searchByDirector.hpp"
+#include "../header/searchByGenre.hpp"
+#include "../header/searchByTitle.hpp"
 #include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 //int menu2()
@@ -10,6 +18,8 @@ int main()
 {
 	int menuChoice = 0;
 	user theUser = intro();
+	Library lib("imdb.movie.database.txt");
+	unsigned int i;
 	while(menuChoice != 5)
 	{
 		int menuChoice = menu();
@@ -90,18 +100,52 @@ int main()
 		}
 		else if(menuChoice == 2)
 		{
-			//recommend by all preferences
-			;
+			RecByPref rbp;
+			vector<dbElement> recPrefList = lib.acceptUR(&rbp, &theUser);
+			cout << "Recommendations from User Preferences: " << endl;
+			if (recPrefList.size() > 10) {
+				for (i = 0; i < 10; i++) {
+					recPrefList.at(i).print();
+				}
+			}
+			else {
+				for (i = 0; i < recPrefList.size(); i++) {
+					recPrefList.at(i).print();
+				}
+			}
 		}
 		else if(menuChoice == 3)
 		{
-			//director preferences
-			;
+			//vector<dbElement> recDirList = recByDir(lib, theUser);
+			RecByDir rcb;
+			vector<dbElement> recDirList = lib.acceptUR(&rcb, &theUser); 
+			cout << "Recommendations from User's Directors: " << endl;
+			if (recDirList.size() > 10) {
+				for (i = 0; i < 10; i++) {
+					recDirList.at(i).print();
+				}	
+			}
+			else {
+				for (i = 0; i < recDirList.size(); i++) {
+					recDirList.at(i).print();
+				}
+			}
 		}
 		else if(menuChoice == 4)
 		{
-			//genre preferences
-			;
+			RecByGenre rbg;
+			vector<dbElement> recGenList = lib.acceptUR(&rbg, &theUser);
+			cout << "Reccommendations from User's Genres: " << endl;
+			if (recGenList.size() > 10) { 
+				for (i = 0; i < 10; i++) {
+					recGenList.at(i).print();
+				}
+			}
+			else {
+				for (i = 0; i < recGenList.size(); i++) {
+					recGenList.at(i).print();
+				}
+			}
 		}
 		else if(menuChoice == 5)
 		{
@@ -109,17 +153,40 @@ int main()
 			break;	
 		}
 		else if(menuChoice == 6)
-		{	//Search by title
-			;
+		{	
+			cout << "Enter a title: ";
+			string str;
+			getline(cin, str);
+			
+			SearchByTitle sbt;
+			vector<dbElement> titleSearch = lib.acceptSR(&sbt, str);
+			titleSearch.at(0).print();
+ 
 		}
 		else if(menuChoice == 7)
-		{	//search by title
-			;
+		{	//search by director
+			cout << "Enter a director: ";
+			string str;
+			getline(cin, str);
+
+			SearchByDirector sbd;
+			vector<dbElement> directorSearch = lib.acceptSR(&sbd, str);
+			for (i = 0; i < directorSearch.size(); i++) {
+				directorSearch.at(i).print();
+			}
 		}
 		else if(menuChoice == 8)
 		{
 			//search by genre
-			;
+			cout << "Enter a genre: ";
+			string str;
+			getline(cin, str);
+	
+			SearchByGenre sbg;
+			vector<dbElement> genreSearch = lib.acceptSR(&sbg, str);
+			for (i = 0; i < 10; i++) {
+				genreSearch.at(i).print();
+			}
 		}
 		else
 		{
