@@ -25,7 +25,7 @@ This application stores a list of movies along with their genre(s), director, re
    The Library class is aggregated out of Movies and composed out of a GUI, and it will depend on SearchCriteria as a parameter for methods. The GUI is a class with an int height, int width, and string color. The GUI class also aggregates out User class, via the recentlyWatched member. The Reccomender class will depend on the User's recentlyWatched member as a parameter for methods.    
  
  ## Screenshots
- ![menu](/images/manu.jpg)
+ ![menu1](/images/manu.jpg)
  
  ## Installation/Usage
  1. To use this program, it requires a few simple requriements to be installed and that's it.
