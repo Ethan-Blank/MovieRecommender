@@ -22,6 +22,9 @@ ADD_EXECUTABLE(test
 	src/searchByGenre.cpp
 	src/searchByDirector.cpp
 	src/searchByTitle.cpp
+	src/recByDir.cpp
+	src/recByPref.cpp
+	src/recByGenre.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
