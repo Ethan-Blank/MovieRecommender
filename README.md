@@ -20,7 +20,7 @@ This application stores a list of movies along with their genre(s), director, re
  
 
 ## Class Diagram
- ![Strat](/images/UML class.jpeg)
+ ![Strat](/images/uml.jpeg)
    **Description**
    The Library class is aggregated out of Movies and composed out of a GUI, and it will depend on SearchCriteria as a parameter for methods. The GUI is a class with an int height, int width, and string color. The GUI class also aggregates out User class, via the recentlyWatched member. The Reccomender class will depend on the User's recentlyWatched member as a parameter for methods.    
  
