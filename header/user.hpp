@@ -27,11 +27,15 @@ class user {
 	void setFavGenres(std::vector<std::string>);
 	void setWatchHistory(std::vector<std::string>);
 	void addWatchedMovie(std::string);
+	void addFavDirectors(std::string);
+	void addFavGenres(std::string);
 	void setUsername(std::string);
 	void setPassword(std::string);
-    void saveData();
-    user readData(std::string);
+  	void removeFavDirectors(std::string);
+	void removeGenres(std::string);
+	void removeWatchedMovies(std::string);
+  void saveData();
+  user readData(std::string);
 };
-
 #endif
 

@@ -91,3 +91,7 @@ vector<dbElement> Library::acceptUR(UserRecommender* r, user* u) {
 vector<dbElement> Library::acceptSR(SearchRecommender* r, string sc) {
 	return r->recommend(this, sc);
 }
+
+vector<dbElement> Library::getDatabase() {
+	return this->movies;
+}
