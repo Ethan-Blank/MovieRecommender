@@ -8,17 +8,16 @@
  >   * Project provides a utility that all group members find useful 
  >   * Project provides an opportunity for creativity
  
- ### What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ ### Langauges/Tools/Technologies:
 > * `Valgrind` - an instrumentation framework for building dynamic analysis tools   (assists in finding and checking memory leaks)
 > * `C++` - the main programming language that will be utilized in this project.
 > * `Git/Github` - git is a local version control program that interfaces with Github, a remote repository.
 > * `GoogleTest` - a testing framework for C++ code
 > * `CMake`- allows for easier compilation and testing
  
- ### What will be the input/output of your project? What are the features that the project provides?
- >   * Input: IMDb Datasets, User Input, User Application History, Item Popularity
- >   * Output: A custom selection of movies and details for those movies (most notably, what platforms movies are available one)
- >   * Features: Manipulation of search criteria, tracking of user-history (intra-application), a GUI
+ ### Input/Output 
+ >   * Input: IMDb Datasets, User Input, 
+ >   * Output: A custom selection of movies and details for those movies
   
  ### Desgin Pattern
  >  * We are using a strategy pattern. We think it will make our code better because it keeps everyone on the same page upfront on the developer side, and will give the user          more flexibility with their reccomendations. We are making our reccomend() function implemented under the Strategy pattern. We picked it because we saw it as a practical design choice to achieve the aforementioned outcomes.
@@ -32,7 +31,12 @@
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ > 1. To use this program, it requires a few simple requriements to be installed and that's it.
+ > 2. Clone this repository recursively (it should include googletest).
+ > 4. In order to run, simply run `cmake .` or if on hammer `cmake3 .`
+ > 5. Then compile with `make`.
+ > 6. You should have your compiled files ready now. To run the tests simply type `./test`. To run the program run `./recommend`.
+ > 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
