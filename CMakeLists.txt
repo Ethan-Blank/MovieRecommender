@@ -27,6 +27,23 @@ ADD_EXECUTABLE(test
 	src/recByGenre.cpp
 )
 
+ADD_EXECUTABLE(main
+	src/main.cpp
+	src/dbElement.cpp
+	src/library.cpp
+	src/searchCriteria.cpp
+	src/recommender.cpp
+	src/user.cpp
+	src/searchByGenre.cpp
+	src/searchByDirector.cpp
+	src/searchByTitle.cpp
+	src/recByDir.cpp
+	src/recByPref.cpp
+	src/recByGenre.cpp
+	src/menu.cpp
+	src/menu2.cpp		
+)
+
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
 

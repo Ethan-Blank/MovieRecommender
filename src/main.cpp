@@ -1,8 +1,6 @@
-#include "../header/MovieRecFrame.hpp"
+#include <iostream>
+using namespace std;
 
-int main()
-{
-	wxIMPLEMENT_APP(MovieRecApp);
-
+int main() {
 	return 0;
 }
