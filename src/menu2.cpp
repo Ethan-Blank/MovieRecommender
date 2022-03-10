@@ -5,7 +5,8 @@
 #include <iostream>
 using namespace std;
 
-int menu2()
+//int menu2()
+int main()
 {
 	int menuChoice = 0;
 	user theUser = intro();
