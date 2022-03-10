@@ -23,8 +23,9 @@ class Library {
 		vector<dbElement> searchByDirector(string);
 		vector<dbElement> searchAboveRating(float);
 		vector<dbElement> searchByYear(int);
-    std::vector<dbElement> acceptUR(UserRecommender*, user*);
-    std::vector<dbElement> acceptSR(SearchRecommender*, std::string);
+    		std::vector<dbElement> getDatabase();
+		std::vector<dbElement> acceptUR(UserRecommender*, user*);
+    		std::vector<dbElement> acceptSR(SearchRecommender*, std::string);
 };
 
 #include "recommender.hpp"
