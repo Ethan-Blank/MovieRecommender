@@ -27,12 +27,13 @@ class Recommender {
 };
 
 
-class UserRecommender {
+class UserRecommender : public Recommender {
     private:
-	std::vector<dbElement> sortByRating(std::vector<dbElement>);
+	//std::vector<dbElement> sortByRating(std::vector<dbElement>);
 
     public:
 	virtual std::vector<dbElement> recommend(Library*, user*) = 0;
+	std::vector<dbElement> sortByRating(std::vector<dbElement>);
 };
 
 
