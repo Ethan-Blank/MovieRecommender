@@ -18,6 +18,7 @@
  >   * Features: Manipulation of search criteria, tracking of user-history (intra-application), a GUI
   
  ### Desgin Pattern
+ >   *We are using a strategy pattern. We think it will make our code better because it keeps everyone on the same page upfront on the developer side, and will give the user          more flexibility with their reccomendations. We are making our reccomend() function implemented under the Strategy pattern. We picked it because we saw it as a practical design choice to achieve the aforementioned outcomes.
  
 
 ## Class Diagram
@@ -31,8 +32,7 @@
  >   * What design pattern(s) did you use? For each pattern you must explain in 4-5 sentences:
 
 
- >     We are using a strategy pattern. We think it will make our code better because it keeps everyone on the same page upfront on the developer side, and will give the user          more flexibility with their reccomendations. We are making our reccomend() function implemented under the Strategy pattern. We picked it because we saw it as a practical 
- >     design choice to achieve the aforementioned outcomes.
+ >     
  >     
 
 
